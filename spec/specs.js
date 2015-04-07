@@ -5,11 +5,15 @@ describe("titleCase", function() {
 
 
   it("capitalizes the first letter of every word in a multi-word title", function() {
-          expect(titleCase("tale of two cities")).to.equal("Tale Of Two Cities");
+          expect(titleCase("tale of two cities")).to.equal("Tale of Two Cities");
     });
 
   it("capitalizes the first letter of every word in a title regardless of inputted capitalization", function() {
-        expect(titleCase("tAlE Of TWo CITIES")).to.equal("Tale Of Two Cities");
+        expect(titleCase("tAlE Of TWo CITIES")).to.equal("Tale of Two Cities");
+  });
+
+  it("capitalizes the first letter of every word, except for little words we've defined", function() {
+        expect(titleCase("tale of two cities")).to.equal("Tale of Two Cities");
   });
 
 });
