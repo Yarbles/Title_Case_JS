@@ -20,4 +20,8 @@ describe("titleCase", function() {
         expect(titleCase("of mice and men")).to.equal("Of Mice and Men");
   });
 
+  it("does all the above, but ignores punctuation", function() {
+      expect(titleCase("poop...the very curious, clever donkey!")).to.equal("Poop...the Very Curious, Clever Donkey!");
+  });
+
 });
