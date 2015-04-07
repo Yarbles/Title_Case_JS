@@ -1,5 +1,5 @@
-var titleCase  = function(input) {
-    var lower_case = input.toLowerCase();
+var titleCase  = function(title) {
+    var lower_case = title.toLowerCase();
     var word_array = lower_case.split(' ');
     var output= [];
     var exceptions = ["of", "the", "in", "a", "and", "an", "at", "to", "on"];
@@ -43,23 +43,15 @@ var titleCase  = function(input) {
 
 };
 
-// STRIP PUNCTUATION
-    // var s = "This., -/ is #! an $ % ^ & * example ;: {} of a = -_ string with `~)() punctuation";
-    // var punctuationless = s.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"");
-    // var finalString = punctuationless.replace(/\s{2,}/g," ");
 
+$(document).ready(function() {
+    $("form#title").submit(function(event) {
+        var title = $("input#title").val();
+        var titlecased = titleCase(title);
 
-// for (var i=0; i < word_array.length; i++){
-//     //FIRST AND LAST WORDS
-//     if (word_array[i] === 0 || word_array[i] === word_array.length + 1){
-//     output.push(word_array[i].charAt(0).toUpperCase() + word_array[i].slice(1));
-//         }
-//     //EXCEPTIONS
-//     else if ($.inArray(word_array[i], exceptions) != -1){
-//         output.push(word_array[i].charAt(0).toUpperCase() + word_array[i].slice(1));
-//     }
-//     //PUSH ANYTHING ELSE
-//     else {
-//         output.push(word_array[i]);
-//     }
-// }
+        console.log(title);
+        $(".titlecased").text(titlecased);
+        $("#titlecased").show();
+        event.preventDefault();
+    });
+});
