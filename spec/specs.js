@@ -8,5 +8,8 @@ describe("titleCase", function() {
           expect(titleCase("tale of two cities")).to.equal("Tale Of Two Cities");
     });
 
+  it("capitalizes the first letter of every word in a title regardless of inputted capitalization", function() {
+        expect(titleCase("tAlE Of TWo CITIES")).to.equal("Tale Of Two Cities");
+  });
 
 });
